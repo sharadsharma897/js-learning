@@ -110,3 +110,36 @@ map.set("2","2222")
 for(const [k,v] of map){
     console.log(k, '-', v)
 }
+
+19. map function 
+const x = [a,b,c]
+const y = x.map((item)=> item + "!") // return another array
+
+if we have to return object const y = x.map((item)=> ({ text: item}))
+
+20. destructuring 
+  const usernameData = ["firstname","lname"]
+  usernameData[0] = "firstname"
+
+  but we can do const [fname,lname] = ["firstname","lname"]
+   
+Also can be done on object
+  const {name,age} = {name:"fname",age: 34}; also alias const {name:firstname,age: currentAge} = {name:"fname",age: 34};
+  
+  The destructuring syntax explained in the previous lecture can also be used in function parameter lists.
+
+  function storeOrder(order) {
+  localStorage.setItem('id', order.id);
+  localStorage.setItem('currency', order.currency);
+}
+
+Instead of accessing the order properties via the "dot notation" inside the storeOrder function body, you could use destructuring like this:
+
+function storeOrder({id, currency}) { // destructuring
+  localStorage.setItem('id', id);
+  localStorage.setItem('currency', currency);
+}
+
+The function would still be called like this:
+
+storeOrder({id: 5, currency: 'USD', amount: 15.99}); // one argument / value!
